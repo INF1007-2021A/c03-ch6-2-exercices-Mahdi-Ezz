@@ -11,20 +11,24 @@ def list_to_dict(some_list: list) -> dict:
 
 def color_name_to_hex(colors: list) -> list:
     # TODO: Trouver la valeur hex de chaque couleur dans la liste et créer une liste de tupple où le premier élément est le nom de la couleur et le deuxième est la valeur hex
-
-    return []
+    return [(c,cnames[c])for c in colors]
 
 
 def create_list() -> list:
     # TODO: Créer une liste des 10 000 premiers entiers positif, sauf pour les entiers de 15 à 350
-
-    return []
+    return [i for i in range(10000) if i< 15 or i>350]
 
 
 def compute_mse(model_dict: dict) -> dict:
     # TODO: Calculer l'erreur quadratique moyen pour chaque modèle. Retourner un dictionnaire contenant les MSE.
-
-    return {}
+    dictionaire_MSE={}
+    for clés, liste in model_dict.items():
+        erreur = 0
+        for tuples in liste:
+            erreur += ((tuples[0]-tuples[1])**2)
+        erreur = 1/len(liste) * (erreur) 
+        dictionaire_MSE[clés] = round(erreur,1)
+    return dictionaire_MSE
 
 
 def main() -> None:
