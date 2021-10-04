@@ -25,8 +25,7 @@ def compute_mse(model_dict: dict) -> dict:
     for clés, liste in model_dict.items():
         erreur = 0
         for tuples in liste:
-            erreur += ((tuples[0]-tuples[1])**2)
-        erreur = 1/len(liste) * (erreur) 
+            erreur += ((tuples[0]-tuples[1])**2)*(1/len(liste))
         dictionaire_MSE[clés] = round(erreur,1)
     return dictionaire_MSE
 
